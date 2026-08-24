@@ -1,0 +1,38 @@
+{
+  "prefix": "",
+  "CDC": 1,
+  "CDCName": "ProtoZOA Debug",
+  "idVendor": "0xCafe",
+  "idProduct": "0x4002",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7E0000",
+  "version": "0x00010000",
+  "product": "ProtoZOA midi-cdc-heartbeat",
+  "serialNumber": "GTBREPRO00000003",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "ProtoZOA midi-cdc-heartbeat Midi",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": true,
+          "name": "Legacy"
+        }
+      ],
+      "defaultGTBProtocol": 2,
+      "blocks": [
+        {
+          "name": "MidiBlock",
+          "in": true,
+          "out": true,
+          "firstGroup": 1,
+          "numOfGroups": 1,
+          "protocol": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        }
+      ]
+    }
+  ]
+}

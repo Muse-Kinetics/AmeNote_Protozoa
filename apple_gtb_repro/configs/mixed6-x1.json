@@ -1,0 +1,87 @@
+{
+  "prefix": "",
+  "CDC": 0,
+  "idVendor": "0xCafe",
+  "idProduct": "0x4001",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7E0000",
+  "version": "0x00010000",
+  "product": "ProtoZOA mixed6-x1",
+  "serialNumber": "GTBREPRO00000001",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "ProtoZOA mixed6-x1",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": true,
+          "name": "Legacy"
+        }
+      ],
+      "defaultGTBProtocol": 2,
+      "blocks": [
+        {
+          "name": "G1M2Bi",
+          "in": true,
+          "out": true,
+          "firstGroup": 1,
+          "numOfGroups": 1,
+          "protocol": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "G2M2Uniin",
+          "in": true,
+          "out": false,
+          "firstGroup": 2,
+          "numOfGroups": 1,
+          "protocol": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "G3M2Uniout",
+          "in": false,
+          "out": true,
+          "firstGroup": 3,
+          "numOfGroups": 1,
+          "protocol": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "G4M1Bi",
+          "in": true,
+          "out": true,
+          "firstGroup": 4,
+          "numOfGroups": 1,
+          "protocol": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "G5M1Uniin",
+          "in": true,
+          "out": false,
+          "firstGroup": 5,
+          "numOfGroups": 1,
+          "protocol": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "G6M1Uniout",
+          "in": false,
+          "out": true,
+          "firstGroup": 6,
+          "numOfGroups": 1,
+          "protocol": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        }
+      ]
+    }
+  ]
+}

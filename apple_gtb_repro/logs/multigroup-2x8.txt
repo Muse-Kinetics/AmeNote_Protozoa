@@ -1,0 +1,81 @@
+SendSysEx v0.13.0
+MIDI backend: Unknown (platform default backend)
+Chunk size: 512 bytes, delay: 100 ms, post-delay: 500 ms
+MIDI Input  Port 0: Mimic Kick Kick
+MIDI Input  Port 1: Mimic Kick 5-Pin DIN
+MIDI Input  Port 2: Mimic Kick MIDI 2.0
+MIDI Input  Port 3: E-MU XMidi1X1 Tab In
+MIDI Input  Port 4: Mimic Hub Hub Control
+MIDI Input  Port 5: Mimic Hub Hub Control
+MIDI Input  Port 6: Mimic Hub Hub Control
+MIDI Input  Port 7: Mimic Hub Hub Control
+MIDI Input  Port 8: Mimic Hub Hub Control
+MIDI Input  Port 9: Mimic Hub Hub Control
+MIDI Input  Port 10: Mimic Hub Hub Control
+MIDI Input  Port 11: Mimic Hub Hub Control
+MIDI Input  Port 12: Mimic Hub Hub Control
+MIDI Input  Port 13: Mimic Hub Hub Control
+MIDI Input  Port 14: Mimic Hub Hub Control
+MIDI Input  Port 15: Mimic Hub Hub Control
+MIDI Input  Port 16: Mimic Hub Hub Control
+MIDI Input  Port 17: Mimic Hub Hub Control
+MIDI Input  Port 18: Mimic Hub Hub Control
+MIDI Input  Port 19: Mimic Hub Hub Control
+MIDI Input  Port 20: Mimic Hub MIDI 2.0
+MIDI Input  Port 21: ProtoZOA multigroup-2x8 Block1
+MIDI Input  Port 22: ProtoZOA multigroup-2x8 Block1
+MIDI Input  Port 23: ProtoZOA multigroup-2x8 Block2
+MIDI Input  Port 24: ProtoZOA multigroup-2x8 Block2
+MIDI Input  Port 25: ProtoZOA multigroup-2x8 Block3
+MIDI Input  Port 26: ProtoZOA multigroup-2x8 Block3
+MIDI Input  Port 27: ProtoZOA multigroup-2x8 Block4
+MIDI Input  Port 28: ProtoZOA multigroup-2x8 Block4
+MIDI Input  Port 29: ProtoZOA multigroup-2x8 Block5
+MIDI Input  Port 30: ProtoZOA multigroup-2x8 Block5
+MIDI Input  Port 31: ProtoZOA multigroup-2x8 Block6
+MIDI Input  Port 32: ProtoZOA multigroup-2x8 Block6
+MIDI Input  Port 33: ProtoZOA multigroup-2x8 Block7
+MIDI Input  Port 34: ProtoZOA multigroup-2x8 Block7
+MIDI Input  Port 35: ProtoZOA multigroup-2x8 Block8
+MIDI Input  Port 36: ProtoZOA multigroup-2x8 Block8
+MIDI Input  Port 37: ProtoZOA multigroup-2x8 MIDI 2.0
+MIDI Output Port 0: Mimic Kick Kick
+MIDI Output Port 1: Mimic Kick 5-Pin DIN
+MIDI Output Port 2: Mimic Kick MIDI 2.0
+MIDI Output Port 3: E-MU XMidi1X1 Tab Out
+MIDI Output Port 4: Mimic Hub Hub Control
+MIDI Output Port 5: Mimic Hub Hub Control
+MIDI Output Port 6: Mimic Hub Hub Control
+MIDI Output Port 7: Mimic Hub Hub Control
+MIDI Output Port 8: Mimic Hub Hub Control
+MIDI Output Port 9: Mimic Hub Hub Control
+MIDI Output Port 10: Mimic Hub Hub Control
+MIDI Output Port 11: Mimic Hub Hub Control
+MIDI Output Port 12: Mimic Hub Hub Control
+MIDI Output Port 13: Mimic Hub Hub Control
+MIDI Output Port 14: Mimic Hub Hub Control
+MIDI Output Port 15: Mimic Hub Hub Control
+MIDI Output Port 16: Mimic Hub Hub Control
+MIDI Output Port 17: Mimic Hub Hub Control
+MIDI Output Port 18: Mimic Hub Hub Control
+MIDI Output Port 19: Mimic Hub Hub Control
+MIDI Output Port 20: Mimic Hub MIDI 2.0
+MIDI Output Port 21: ProtoZOA multigroup-2x8 Block1
+MIDI Output Port 22: ProtoZOA multigroup-2x8 Block1
+MIDI Output Port 23: ProtoZOA multigroup-2x8 Block2
+MIDI Output Port 24: ProtoZOA multigroup-2x8 Block2
+MIDI Output Port 25: ProtoZOA multigroup-2x8 Block3
+MIDI Output Port 26: ProtoZOA multigroup-2x8 Block3
+MIDI Output Port 27: ProtoZOA multigroup-2x8 Block4
+MIDI Output Port 28: ProtoZOA multigroup-2x8 Block4
+MIDI Output Port 29: ProtoZOA multigroup-2x8 Block5
+MIDI Output Port 30: ProtoZOA multigroup-2x8 Block5
+MIDI Output Port 31: ProtoZOA multigroup-2x8 Block6
+MIDI Output Port 32: ProtoZOA multigroup-2x8 Block6
+MIDI Output Port 33: ProtoZOA multigroup-2x8 Block7
+MIDI Output Port 34: ProtoZOA multigroup-2x8 Block7
+MIDI Output Port 35: ProtoZOA multigroup-2x8 Block8
+MIDI Output Port 36: ProtoZOA multigroup-2x8 Block8
+MIDI Output Port 37: ProtoZOA multigroup-2x8 MIDI 2.0
+
+---STDERR---

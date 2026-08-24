@@ -1,0 +1,170 @@
+{"app_name":"SendSysEx","timestamp":"2026-08-21 22:25:57.00 -0700","app_version":"","slice_uuid":"d747b49e-3888-36aa-a98e-0aeb445eb3bc","build_version":"","platform":1,"share_with_app_devs":0,"is_first_party":1,"bug_type":"309","os_version":"macOS 26.4.1 (25E253)","roots_installed":0,"incident_id":"4234EEE7-C9A6-4610-B380-D86AD3202ABE","name":"SendSysEx"}
+{
+  "uptime" : 2100000,
+  "procRole" : "Unspecified",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "Macmini9,1",
+  "coalitionID" : 6257,
+  "osVersion" : {
+    "train" : "macOS 26.4.1",
+    "build" : "25E253",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2026-08-21 22:25:55.7069 -0700",
+  "codeSigningMonitor" : 1,
+  "incident" : "4234EEE7-C9A6-4610-B380-D86AD3202ABE",
+  "pid" : 18743,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "procLaunch" : "2026-08-21 22:21:05.4501 -0700",
+  "procStartAbsTime" : 52715164480016,
+  "procExitAbsTime" : 52722130708868,
+  "procName" : "SendSysEx",
+  "procPath" : "\/Users\/USER\/*\/SendSysEx",
+  "parentProc" : "bash",
+  "parentPid" : 18673,
+  "coalitionName" : "com.microsoft.VSCode",
+  "crashReporterKey" : "A1C6D4EE-D92D-9528-3241-422360B21D1D",
+  "appleIntelligenceStatus" : {"state":"unavailable","reasons":["assetIsNotReady","notOptedIn"]},
+  "developerMode" : 1,
+  "bootProgressRegister" : "0x2f000000",
+  "responsiblePid" : 92932,
+  "responsibleProc" : "Code",
+  "codeSigningID" : "SendSysEx",
+  "codeSigningTeamID" : "",
+  "codeSigningFlags" : 570556929,
+  "codeSigningValidationCategory" : 10,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "instructionByteStream" : {"beforePC":"fyMD1f17v6n9AwCRCuD\/l78DAJH9e8Go\/w9f1sADX9YQKYDSARAA1A==","atPC":"AwEAVH8jA9X9e7+p\/QMAkf\/f\/5e\/AwCR\/XvBqP8PX9bAA1\/WcAqA0g=="},
+  "bootSessionUUID" : "C6E42C1B-9BB3-43C7-8E5A-A456EC562AC0",
+  "wakeTime" : 2191236,
+  "sleepWakeUUID" : "C16540C5-5DB0-4BF6-962A-DFDAFF9D7611",
+  "sip" : "enabled",
+  "exception" : {"codes":"0x0000000000000000, 0x0000000000000000","rawCodes":[0,0],"type":"EXC_CRASH","signal":"SIGABRT"},
+  "termination" : {"flags":0,"code":6,"namespace":"SIGNAL","indicator":"Abort trap: 6","byProc":"SendSysEx","byPid":18743},
+  "asi" : {"libsystem_c.dylib":["abort() called"]},
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":18092892,"threadState":{"x":[{"value":0},{"value":0},{"value":0},{"value":0},{"value":18446744073709550441},{"value":25},{"value":32},{"value":0},{"value":8442731928186062546},{"value":8442731927566179858},{"value":2},{"value":4294967293},{"value":0},{"value":0},{"value":0},{"value":0},{"value":328},{"value":8295472928},{"value":0},{"value":6},{"value":259},{"value":8272173472,"symbolLocation":224,"symbol":"_main_thread"},{"value":0},{"value":1},{"value":1},{"value":48762994688},{"value":8272179632,"symbolLocation":0,"symbol":"mach_task_self_"},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6462290136},"cpsr":{"value":1073745920},"fp":{"value":6160687216},"sp":{"value":6160687184},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6462047720,"matchesCrashFrame":1},"far":{"value":0}},"queue":"com.apple.main-thread","frames":[{"imageOffset":38376,"symbol":"__pthread_kill","symbolLocation":8,"imageIndex":1},{"imageOffset":26840,"symbol":"pthread_kill","symbolLocation":296,"imageIndex":2},{"imageOffset":493456,"symbol":"abort","symbolLocation":148,"imageIndex":3},{"imageOffset":91948,"symbol":"__abort_message","symbolLocation":132,"imageIndex":4},{"imageOffset":13680,"symbol":"demangling_terminate_handler()","symbolLocation":272,"imageIndex":4},{"imageOffset":149668,"symbol":"_objc_terminate()","symbolLocation":172,"imageIndex":5},{"imageOffset":79708,"symbol":"std::__terminate(void (*)())","symbolLocation":16,"imageIndex":4},{"imageOffset":79632,"symbol":"std::terminate()","symbolLocation":108,"imageIndex":4},{"imageOffset":79652,"symbol":"std::__unexpected(void (*)())","symbolLocation":16,"imageIndex":4},{"imageOffset":90104,"symbol":"__cxa_call_unexpected","symbolLocation":328,"imageIndex":4},{"imageOffset":345268,"symbol":"MidiOutCore::getCoreMidiClientSingleton(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)","symbolLocation":396,"imageIndex":0},{"imageOffset":344428,"symbol":"MidiOutCore::initialize(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)","symbolLocation":36,"imageIndex":0},{"imageOffset":344336,"symbol":"MidiOutCore::MidiOutCore(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)","symbolLocation":60,"imageIndex":0},{"imageOffset":333884,"symbol":"MidiOutCore::MidiOutCore(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)","symbolLocation":36,"imageIndex":0},{"imageOffset":333780,"symbol":"rt::midi::RtMidiOut::openMidiApi(rt::midi::RtMidi::Api, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)","symbolLocation":112,"imageIndex":0},{"imageOffset":334180,"symbol":"rt::midi::RtMidiOut::RtMidiOut(rt::midi::RtMidi::Api, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)","symbolLocation":280,"imageIndex":0},{"imageOffset":334500,"symbol":"rt::midi::RtMidiOut::RtMidiOut(rt::midi::RtMidi::Api, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&)","symbolLocation":44,"imageIndex":0},{"imageOffset":15936,"symbol":"(anonymous namespace)::runManualProcess((anonymous namespace)::CliOptions const&)","symbolLocation":64,"imageIndex":0},{"imageOffset":9208,"symbol":"main","symbolLocation":960,"imageIndex":0},{"imageOffset":130468,"symbol":"start","symbolLocation":6992,"imageIndex":6}]},{"id":18092894,"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":1},{"imageOffset":79220,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":1},{"imageOffset":39360,"symbol":"mach_msg_overwrite","symbolLocation":480,"imageIndex":1},{"imageOffset":4032,"symbol":"mach_msg","symbolLocation":24,"imageIndex":1},{"imageOffset":296476,"symbol":"XServerMachPort::ReceiveMessage(int&, void*, int&)","symbolLocation":104,"imageIndex":8},{"imageOffset":434528,"symbol":"MIDIProcess::MIDIInPortThread::Run()","symbolLocation":148,"imageIndex":8},{"imageOffset":386420,"symbol":"CADeprecated::XThread::RunHelper(void*)","symbolLocation":40,"imageIndex":8},{"imageOffset":432380,"symbol":"CADeprecated::CAPThread::Entry(void*)","symbolLocation":96,"imageIndex":8},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":2},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":2}],"threadState":{"x":[{"value":268451845},{"value":17179869186},{"value":0},{"value":22003117457408},{"value":0},{"value":22003117457408},{"value":100},{"value":0},{"value":0},{"value":17179869184},{"value":100},{"value":0},{"value":0},{"value":0},{"value":5123},{"value":0},{"value":18446744073709551569},{"value":8295474736},{"value":0},{"value":0},{"value":100},{"value":22003117457408},{"value":0},{"value":22003117457408},{"value":17179869186},{"value":6161246676},{"value":0},{"value":18446744073709550527},{"value":2}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6462088564},"cpsr":{"value":4096},"fp":{"value":6161246336},"sp":{"value":6161246256},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6462012468},"far":{"value":0}}},{"id":18092896,"frames":[],"threadState":{"x":[{"value":6161821696},{"value":5635},{"value":6161285120},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6161821696},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6462270472},"far":{"value":0}}}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4306190336,
+    "size" : 425984,
+    "uuid" : "d747b49e-3888-36aa-a98e-0aeb445eb3bc",
+    "path" : "\/Users\/USER\/*\/SendSysEx",
+    "name" : "SendSysEx"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6462009344,
+    "size" : 250512,
+    "uuid" : "51565b39-f595-3e96-a217-fef29815057a",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6462263296,
+    "size" : 52028,
+    "uuid" : "e7a73008-0c09-31e3-9dd9-0c61652f0e85",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6460776448,
+    "size" : 528120,
+    "uuid" : "66ebd321-6899-3863-ba24-5cfc3076a0cb",
+    "path" : "\/usr\/lib\/system\/libsystem_c.dylib",
+    "name" : "libsystem_c.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6461898752,
+    "size" : 108384,
+    "uuid" : "e8d325ed-3b97-325e-b494-b1b0ff93d133",
+    "path" : "\/usr\/lib\/libc++abi.dylib",
+    "name" : "libc++abi.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6457688064,
+    "size" : 338764,
+    "uuid" : "2e858e25-1ff6-3da6-84f6-911630620512",
+    "path" : "\/usr\/lib\/libobjc.A.dylib",
+    "name" : "libobjc.A.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6458245120,
+    "size" : 679624,
+    "uuid" : "9f682dcf-340c-3bfa-bcdd-dd702f30313e",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6987997184,
+    "CFBundleShortVersionString" : "2.0",
+    "CFBundleIdentifier" : "com.apple.audio.midi.CoreMIDI",
+    "size" : 846880,
+    "uuid" : "03707b1e-a19f-32d7-98a9-e3a7248b1209",
+    "path" : "\/System\/Library\/Frameworks\/CoreMIDI.framework\/Versions\/A\/CoreMIDI",
+    "name" : "CoreMIDI",
+    "CFBundleVersion" : "88"
+  }
+],
+  "sharedCache" : {
+  "base" : 6457114624,
+  "size" : 5978570752,
+  "uuid" : "2d40543a-792e-37b8-978d-3d7030e1aa81"
+},
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "logWritingSignature" : "1d0ccd9a246422d01f648da240bfb8fbd2199408",
+  "roots_installed" : 0,
+  "bug_type" : "309",
+  "trmStatus" : 8192,
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "6434420a89ec2e0a7a38bf5a",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 240000011
+    },
+    {
+      "rolloutId" : "6246d6a916a70b047e454124",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 240000010
+    }
+  ],
+  "experiments" : [
+
+  ]
+}
+}

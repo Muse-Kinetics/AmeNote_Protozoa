@@ -38,7 +38,7 @@
 
 #include "protozoa_uut_tasks.h"
 #include "include/tusb_freertos.h"
-//#include "tusb.h"
+#include "tusb.h"
 
 // For now we will just bring in the main task from protozoa_uut.cpp and run in
 // thread. Eventually will transition to a full FreeRTOS load and launch system
@@ -66,6 +66,33 @@ static void pvrBlink( void *pvParameters )
     {
         gpio_xor_mask( 1u << PICO_DEFAULT_LED_PIN );        // change LED state
         vTaskDelay( 1000 / portTICK_PERIOD_MS );            // every second
+    }
+}
+
+/**
+ * @brief pvrCDCHeartbeat MIDI+CDC composite sanity check.
+ * Writes an incrementing "hello world" line to the CDC serial port once a
+ * second so the composite descriptor (CDC + single MIDI interface, distinct
+ * classes) can be verified against a plain serial monitor -- separate from
+ * the same-class dual-MIDI-interface repro this build variant stashed.
+ *
+ * @param pvParameters Not Used
+ */
+static void pvrCDCHeartbeat( void *pvParameters )
+{
+    uint32_t count = 0;
+    char line[64];
+
+    while (1)
+    {
+        if (tud_cdc_connected())
+        {
+            int len = snprintf(line, sizeof(line), "hello world %lu\r\n", (unsigned long)count);
+            for (int i = 0; i < len; i++) tud_cdc_write_char(line[i]);
+            tud_cdc_write_flush();
+            count++;
+        }
+        vTaskDelay( 1000 / portTICK_PERIOD_MS );
     }
 }
 
@@ -108,6 +135,15 @@ void vLaunch( void)
                     );
 
     tusb_freertos_tud_create( TUSB_DEVICE_STACK_SIZE, TUSB_DEVICE_TASK_PRIORITY );
+
+    // CDC heartbeat -- MIDI+CDC composite sanity check
+    xTaskCreate(    pvrCDCHeartbeat,
+                    "CDC_HB",
+                    configMINIMAL_STACK_SIZE,
+                    NULL,
+                    tskIDLE_PRIORITY + 1,
+                    NULL
+                    );
 
     vTaskStartScheduler();
 

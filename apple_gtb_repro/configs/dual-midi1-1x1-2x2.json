@@ -1,0 +1,56 @@
+{
+  "prefix": "",
+  "CDC": 0,
+  "idVendor": "0xCafe",
+  "idProduct": "0x4004",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7E0000",
+  "version": "0x00010000",
+  "product": "ProtoZOA dual-midi1-1x1-2x2",
+  "serialNumber": "GTBREPRO00000004",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "ProtoZOA-IfaceA",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": false,
+          "name": "IfaceA-In1"
+        },
+        {
+          "in": false,
+          "out": true,
+          "name": "IfaceA-Out1"
+        }
+      ],
+      "blocks": []
+    },
+    {
+      "name": "ProtoZOA-IfaceB",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": false,
+          "name": "IfaceB-In1"
+        },
+        {
+          "in": true,
+          "out": false,
+          "name": "IfaceB-In2"
+        },
+        {
+          "in": false,
+          "out": true,
+          "name": "IfaceB-Out1"
+        },
+        {
+          "in": false,
+          "out": true,
+          "name": "IfaceB-Out2"
+        }
+      ],
+      "blocks": []
+    }
+  ]
+}

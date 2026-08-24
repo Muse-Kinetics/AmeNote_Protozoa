@@ -7,9 +7,13 @@
 [submodule "lib/AM_MIDI2.0Lib"]
 	path = lib/AM_MIDI2.0Lib
 	url = git@github.com:midi2-dev/AM_MIDI2.0Lib.git
+# NOTE (apple-gtb-repro branch only): lib/tusb_ump points at the Muse-Kinetics fork, not
+# midi2-dev, so this branch resolves its pinned submodule commit (two driver fixes -- see
+# apple_gtb_repro/MANIFEST.md section 10) without waiting on the upstream PR to merge. Do not
+# carry this override to any branch intended to merge back upstream.
 [submodule "lib/tusb_ump"]
 	path = lib/tusb_ump
-	url = git@github.com:midi2-dev/tusb_ump.git
+	url = git@github.com:Muse-Kinetics/tusb_ump.git
 [submodule "lib/CMSIS_5"]
 	path = lib/CMSIS_5
 	url = git@github.com:ARM-software/CMSIS_5.git

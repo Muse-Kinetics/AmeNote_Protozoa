@@ -1,0 +1,226 @@
+{"app_name":"MIDIServer","timestamp":"2026-08-22 16:43:39.00 -0700","app_version":"","sroute_id":4,"slice_uuid":"dd33df58-a0ec-3269-a335-463f718e3530","build_version":"","platform":1,"share_with_app_devs":0,"is_first_party":1,"bug_type":"309","os_version":"macOS 26.4.1 (25E253)","roots_installed":0,"incident_id":"9AF31261-045B-4424-8829-5E3FFA0B6722","name":"MIDIServer"}
+{
+  "uptime" : 56000,
+  "procRole" : "Unspecified",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "Macmini9,1",
+  "coalitionID" : 1314,
+  "osVersion" : {
+    "train" : "macOS 26.4.1",
+    "build" : "25E253",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2026-08-22 16:43:37.7737 -0700",
+  "codeSigningMonitor" : 1,
+  "incident" : "9AF31261-045B-4424-8829-5E3FFA0B6722",
+  "pid" : 39966,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "procLaunch" : "2026-08-22 16:43:37.6104 -0700",
+  "procStartAbsTime" : 1346085894403,
+  "procExitAbsTime" : 1346089801408,
+  "procName" : "MIDIServer",
+  "procPath" : "\/System\/Library\/Frameworks\/CoreMIDI.framework\/MIDIServer",
+  "parentProc" : "launchd",
+  "parentPid" : 1,
+  "coalitionName" : "com.apple.midiserver",
+  "crashReporterKey" : "A1C6D4EE-D92D-9528-3241-422360B21D1D",
+  "appleIntelligenceStatus" : {"reasons":["notOptedIn","assetIsNotReady"],"state":"unavailable"},
+  "developerMode" : 1,
+  "bootProgressRegister" : "0x2f000000",
+  "consecutiveCrashCount" : 3,
+  "throttleTimeout" : 10,
+  "codeSigningID" : "com.apple.MIDIServer",
+  "codeSigningTeamID" : "",
+  "codeSigningFlags" : 570514177,
+  "codeSigningValidationCategory" : 1,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "instructionByteStream" : {"beforePC":"fyMD1f17v6n9AwCRCuD\/l78DAJH9e8Go\/w9f1sADX9YQKYDSARAA1A==","atPC":"AwEAVH8jA9X9e7+p\/QMAkf\/f\/5e\/AwCR\/XvBqP8PX9bAA1\/WcAqA0g=="},
+  "bootSessionUUID" : "B66AA0E0-8486-464C-B638-9D9E61FBFD8C",
+  "sip" : "enabled",
+  "sroute_id" : 4,
+  "exception" : {"codes":"0x0000000000000000, 0x0000000000000000","rawCodes":[0,0],"type":"EXC_CRASH","signal":"SIGABRT"},
+  "termination" : {"flags":0,"code":6,"namespace":"SIGNAL","indicator":"Abort trap: 6","byProc":"MIDIServer","byPid":39966},
+  "asi" : {"libsystem_c.dylib":["stack buffer overflow"]},
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":428783,"threadState":{"x":[{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":6712988915,"symbolLocation":2495,"symbol":"hexlist"},{"value":8491248667224271797},{"value":8491248670512427893},{"value":72057598332895232},{"value":428783},{"value":0},{"value":654746323648772},{"value":8589938688},{"value":562950221857896},{"value":328},{"value":8547163936},{"value":0},{"value":6},{"value":259},{"value":8523864480,"symbolLocation":224,"symbol":"_main_thread"},{"value":4346717632},{"value":4338849457},{"value":27},{"value":28},{"value":1024},{"value":53397868608},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6713981144},"cpsr":{"value":1073745920},"fp":{"value":6128854704},"sp":{"value":6128854672},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6713738728,"matchesCrashFrame":1},"far":{"value":0}},"queue":"com.apple.main-thread","frames":[{"imageOffset":38376,"symbol":"__pthread_kill","symbolLocation":8,"imageIndex":7},{"imageOffset":26840,"symbol":"pthread_kill","symbolLocation":296,"imageIndex":8},{"imageOffset":493620,"symbol":"__abort","symbolLocation":152,"imageIndex":9},{"imageOffset":493836,"symbol":"__stack_chk_fail","symbolLocation":96,"imageIndex":9},{"imageOffset":94600,"imageIndex":2},{"imageOffset":120672,"imageIndex":2},{"imageOffset":4346582240,"imageIndex":10}]},{"id":428784,"name":"caulk.messenger.shared:high","threadState":{"x":[{"value":14},{"value":4346620844},{"value":0},{"value":6129414252},{"value":4346620816},{"value":27},{"value":0},{"value":0},{"value":0},{"value":4294967295},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":18446744073709551580},{"value":8547168240},{"value":0},{"value":4346620272},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6924979712},"cpsr":{"value":2147487744},"fp":{"value":6129414016},"sp":{"value":6129413984},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6713703344},"far":{"value":0}},"frames":[{"imageOffset":2992,"symbol":"semaphore_wait_trap","symbolLocation":8,"imageIndex":7},{"imageOffset":7680,"symbol":"caulk::semaphore::timed_wait(double)","symbolLocation":224,"imageIndex":11},{"imageOffset":7340,"symbol":"caulk::concurrent::details::worker_thread::run()","symbolLocation":32,"imageIndex":11},{"imageOffset":6476,"symbol":"void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, void (caulk::concurrent::details::worker_thread::*)(), std::__1::tuple<caulk::concurrent::details::worker_thread*>>>(void*)","symbolLocation":96,"imageIndex":11},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":8},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":8}]},{"id":428785,"name":"umpci_thread","threadState":{"x":[{"value":14},{"value":2147483648000000000},{"value":500000000},{"value":6129987677},{"value":4346622944},{"value":12},{"value":0},{"value":0},{"value":0},{"value":500000000},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":18446744073709551578},{"value":8547168224},{"value":0},{"value":4346622508},{"value":2147483648000000000},{"value":4346622496},{"value":4346622864},{"value":6129987438},{"value":6129987439},{"value":4346622888},{"value":1},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6925099116},"cpsr":{"value":2147487744},"fp":{"value":6129987408},"sp":{"value":6129987392},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6713703368},"far":{"value":0}},"frames":[{"imageOffset":3016,"symbol":"semaphore_timedwait_trap","symbolLocation":8,"imageIndex":7},{"imageOffset":127084,"symbol":"caulk::mach::semaphore::timed_wait_or_error(double)","symbolLocation":64,"imageIndex":11},{"imageOffset":320368,"symbol":"void* caulk::thread_proxy<std::__1::tuple<caulk::thread::attributes, AsyncMessenger::AsyncMessenger(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, float)::'lambda'(), std::__1::tuple<>>>(void*)","symbolLocation":84,"imageIndex":12},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":8},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":8}]},{"id":428786,"frames":[],"threadState":{"x":[{"value":6130561024},{"value":4867},{"value":6130024448},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6130561024},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6713961480},"far":{"value":0}}},{"id":428787,"frames":[],"threadState":{"x":[{"value":6131134464},{"value":10243},{"value":6130597888},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6131134464},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6713961480},"far":{"value":0}}},{"id":428798,"frames":[{"imageOffset":17676,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":7},{"imageOffset":28968,"symbol":"_pthread_cond_wait","symbolLocation":980,"imageIndex":8},{"imageOffset":214056,"symbol":"CADeprecated::CAGuard::Wait()","symbolLocation":76,"imageIndex":12},{"imageOffset":473288,"symbol":"CADeprecated::TimerTaskMgr::Run()","symbolLocation":364,"imageIndex":12},{"imageOffset":386420,"symbol":"CADeprecated::XThread::RunHelper(void*)","symbolLocation":40,"imageIndex":12},{"imageOffset":432380,"symbol":"CADeprecated::CAPThread::Entry(void*)","symbolLocation":96,"imageIndex":12},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":8},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":8}],"threadState":{"x":[{"value":260},{"value":0},{"value":0},{"value":0},{"value":0},{"value":160},{"value":0},{"value":0},{"value":6131707528},{"value":0},{"value":0},{"value":2},{"value":2},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8547163864},{"value":0},{"value":4346649512},{"value":4346649576},{"value":6131708128},{"value":0},{"value":0},{"value":0},{"value":1},{"value":256},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6713983272},"cpsr":{"value":1610616832},"fp":{"value":6131707648},"sp":{"value":6131707504},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6713718028},"far":{"value":0}}},{"id":428799,"frames":[{"imageOffset":17160,"symbol":"__semwait_signal","symbolLocation":8,"imageIndex":7},{"imageOffset":56512,"symbol":"nanosleep","symbolLocation":220,"imageIndex":9},{"imageOffset":93732,"symbol":"sleep","symbolLocation":52,"imageIndex":9},{"imageOffset":385212,"symbol":"DriverIOThread::Run()","symbolLocation":76,"imageIndex":12},{"imageOffset":386420,"symbol":"CADeprecated::XThread::RunHelper(void*)","symbolLocation":40,"imageIndex":12},{"imageOffset":432380,"symbol":"CADeprecated::CAPThread::Entry(void*)","symbolLocation":96,"imageIndex":12},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":8},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":8}],"threadState":{"x":[{"value":4},{"value":0},{"value":1},{"value":1},{"value":1},{"value":0},{"value":52},{"value":0},{"value":8523906072,"symbolLocation":0,"symbol":"clock_sem"},{"value":16387},{"value":17},{"value":4294967293},{"value":0},{"value":0},{"value":0},{"value":0},{"value":334},{"value":8547163984},{"value":0},{"value":6132281152},{"value":6132281168},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6712523968},"cpsr":{"value":1610616832},"fp":{"value":6132281136},"sp":{"value":6132281088},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6713717512},"far":{"value":0}}}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4338024448,
+    "size" : 16384,
+    "uuid" : "dd33df58-a0ec-3269-a335-463f718e3530",
+    "path" : "\/System\/Library\/Frameworks\/CoreMIDI.framework\/MIDIServer",
+    "name" : "MIDIServer"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4338974720,
+    "CFBundleShortVersionString" : "900.4.2",
+    "CFBundleIdentifier" : "com.apple.iokit.IOUSBLib",
+    "size" : 49152,
+    "uuid" : "7cbf0a3c-db8e-3b94-a932-f797bd229d45",
+    "path" : "\/System\/Library\/Extensions\/IOUSBHostFamily.kext\/Contents\/PlugIns\/IOUSBLib.bundle\/Contents\/MacOS\/IOUSBLib",
+    "name" : "IOUSBLib",
+    "CFBundleVersion" : "900.4.2"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4338712576,
+    "CFBundleShortVersionString" : "1.10",
+    "CFBundleIdentifier" : "com.apple.AppleMIDIUSBDriver",
+    "size" : 163840,
+    "uuid" : "075abf3c-9a17-3d82-840e-8b42105264d0",
+    "path" : "\/System\/Library\/Extensions\/AppleMIDIUSBDriver.plugin\/Contents\/MacOS\/AppleMIDIUSBDriver",
+    "name" : "AppleMIDIUSBDriver",
+    "CFBundleVersion" : "88"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4339859456,
+    "CFBundleShortVersionString" : "1.10",
+    "CFBundleIdentifier" : "com.apple.AppleMIDINetworkDriver",
+    "size" : 278528,
+    "uuid" : "b5a3fa91-14d2-39c4-91d7-1fc336694b8d",
+    "path" : "\/System\/Library\/Extensions\/AppleMIDINetworkDriver.plugin\/Contents\/MacOS\/AppleMIDINetworkDriver",
+    "name" : "AppleMIDINetworkDriver",
+    "CFBundleVersion" : "88"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4339269632,
+    "CFBundleShortVersionString" : "2.0",
+    "CFBundleIdentifier" : "com.apple.AppleMIDIIACDriver",
+    "size" : 16384,
+    "uuid" : "66f7aeec-adc4-3008-9fb4-4ffa1ba6eada",
+    "path" : "\/System\/Library\/Extensions\/AppleMIDIIACDriver.plugin\/Contents\/MacOS\/AppleMIDIIACDriver",
+    "name" : "AppleMIDIIACDriver",
+    "CFBundleVersion" : "88"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4340219904,
+    "CFBundleShortVersionString" : "1.10",
+    "CFBundleIdentifier" : "com.apple.AppleMIDIBluetoothDriver",
+    "size" : 98304,
+    "uuid" : "4a3bd224-e129-3fdc-9e4a-1e7cb95279cd",
+    "path" : "\/System\/Library\/Extensions\/AppleMIDIBluetoothDriver.plugin\/Contents\/MacOS\/AppleMIDIBluetoothDriver",
+    "name" : "AppleMIDIBluetoothDriver",
+    "CFBundleVersion" : "88"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4339122176,
+    "CFBundleShortVersionString" : "1.5",
+    "CFBundleIdentifier" : "com.snoize.MIDIMonitorDriver",
+    "size" : 16384,
+    "uuid" : "75392ad7-b3a2-32d8-9cff-9bc96e490589",
+    "path" : "\/Users\/USER\/Library\/Audio\/MIDI Drivers\/MIDI Monitor.plugin\/Contents\/MacOS\/MIDI Monitor",
+    "name" : "MIDI Monitor",
+    "CFBundleVersion" : "1.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6713700352,
+    "size" : 250512,
+    "uuid" : "51565b39-f595-3e96-a217-fef29815057a",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6713954304,
+    "size" : 52028,
+    "uuid" : "e7a73008-0c09-31e3-9dd9-0c61652f0e85",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6712467456,
+    "size" : 528120,
+    "uuid" : "66ebd321-6899-3863-ba24-5cfc3076a0cb",
+    "path" : "\/usr\/lib\/system\/libsystem_c.dylib",
+    "name" : "libsystem_c.dylib"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6924972032,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.audio.caulk",
+    "size" : 168000,
+    "uuid" : "2bdd6811-ce34-3098-9833-10d9f74b7ffc",
+    "path" : "\/System\/Library\/PrivateFrameworks\/caulk.framework\/Versions\/A\/caulk",
+    "name" : "caulk"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 7239688192,
+    "CFBundleShortVersionString" : "2.0",
+    "CFBundleIdentifier" : "com.apple.audio.midi.CoreMIDI",
+    "size" : 846880,
+    "uuid" : "03707b1e-a19f-32d7-98a9-e3a7248b1209",
+    "path" : "\/System\/Library\/Frameworks\/CoreMIDI.framework\/Versions\/A\/CoreMIDI",
+    "name" : "CoreMIDI",
+    "CFBundleVersion" : "88"
+  }
+],
+  "sharedCache" : {
+  "base" : 6708805632,
+  "size" : 5978570752,
+  "uuid" : "2d40543a-792e-37b8-978d-3d7030e1aa81"
+},
+  "vmSummary" : "ReadOnly portion of Libraries: Total=864.0M resident=0K(0%) swapped_out_or_unallocated=864.0M(100%)\nWritable regions: Total=92.6M written=321K(0%) resident=321K(0%) swapped_out=0K(0%) unallocated=92.3M(100%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nActivity Tracing                   256K        1 \nDispatch continuations            64.0M        1 \nKernel Alloc Once                   32K        1 \nMALLOC                            16.7M        7 \nMALLOC guard page                 3472K        4 \nSTACK GUARD                       56.1M        7 \nStack                             11.2M        7 \nVM_ALLOCATE                        128K        2 \n__AUTH                            1331K      150 \n__AUTH_CONST                      17.9M      343 \n__CTF                               824        1 \n__DATA                            4349K      304 \n__DATA_CONST                      16.6M      349 \n__DATA_DIRTY                      1328K      287 \n__FONT_DATA                        2352        1 \n__LINKEDIT                       572.7M        8 \n__OBJC_RO                         79.1M        1 \n__OBJC_RW                         2597K        1 \n__TEXT                           291.4M      358 \n__TPRO_CONST                       128K        2 \nmapped file                       33.9M        3 \npage table in kernel               321K        1 \nshared memory                       80K        4 \n===========                     =======  ======= \nTOTAL                              1.1G     1843 \n",
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "logWritingSignature" : "7603f2713314604551d7f4be278b5a7d1941dca9",
+  "roots_installed" : 0,
+  "bug_type" : "309",
+  "trmStatus" : 8192,
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "6434420a89ec2e0a7a38bf5a",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 240000011
+    },
+    {
+      "rolloutId" : "6246d6a916a70b047e454124",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 240000010
+    }
+  ],
+  "experiments" : [
+
+  ]
+}
+}

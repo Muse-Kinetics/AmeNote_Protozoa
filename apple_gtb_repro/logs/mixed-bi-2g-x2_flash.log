@@ -1,0 +1,33 @@
+Reading symbols from /Users/rsp_kesumo/00_Firmware/USB_Host_Dev/reference/AmeNote_Protozoa/build/UUT_FreeRTOS/USB_MIDI_Echo/UUT_USB_MIDI_ECHO.elf...
+Remote debugging using localhost:3334
+0x10007584 in xPortPendSVHandler ()
+    at /Users/rsp_kesumo/00_Firmware/USB_Host_Dev/reference/AmeNote_Protozoa/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/port.c:558
+558	        __asm volatile
+[rp2040.core0] halted due to debug-request, current mode: Thread 
+xPSR: 0xf1000000 pc: 0x000000ee msp: 0x20041f00
+[rp2040.core1] halted due to debug-request, current mode: Thread 
+xPSR: 0xf1000000 pc: 0x000000ee msp: 0x20041f00
+Loading section .boot2, size 0x100 lma 0x10000000
+Loading section .text, size 0xa2a0 lma 0x10000100
+Loading section .rodata, size 0x930 lma 0x1000a3a0
+Loading section .ARM.exidx, size 0x8 lma 0x1000acd0
+Loading section .binary_info, size 0x28 lma 0x1000acd8
+Loading section .data, size 0x16f4 lma 0x1000ad00
+Start address 0x100001e8, load size 50164
+Transfer rate: 11 KB/sec, 6270 bytes/write.
+[rp2040.core0] halted due to debug-request, current mode: Thread 
+xPSR: 0xf1000000 pc: 0x000000ee msp: 0x20041f00
+[rp2040.core1] halted due to debug-request, current mode: Thread 
+xPSR: 0xf1000000 pc: 0x000000ee msp: 0x20041f00
+Breakpoint 1 at 0x100002f8: file /Users/rsp_kesumo/00_Firmware/USB_Host_Dev/reference/AmeNote_Protozoa/UUT_FreeRTOS/USB_MIDI_Echo/main.c, line 168.
+Note: automatically using hardware breakpoints for read-only addresses.
+Continuing.
+
+Breakpoint 1, main ()
+    at /Users/rsp_kesumo/00_Firmware/USB_Host_Dev/reference/AmeNote_Protozoa/UUT_FreeRTOS/USB_MIDI_Echo/main.c:168
+168	    stdio_init_all();
+USB_BUS_CHECK:
+0
+Removed 1 entry/entries across all stores, CoreMIDI restarted.
+Detaching from program: /Users/rsp_kesumo/00_Firmware/USB_Host_Dev/reference/AmeNote_Protozoa/build/UUT_FreeRTOS/USB_MIDI_Echo/UUT_USB_MIDI_ECHO.elf, Remote target
+[Inferior 1 (Remote target) detached]

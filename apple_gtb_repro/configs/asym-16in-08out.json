@@ -1,0 +1,243 @@
+{
+  "prefix": "",
+  "CDC": 0,
+  "idVendor": "0xCafe",
+  "idProduct": "0x4001",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7E0000",
+  "version": "0x00010000",
+  "product": "ProtoZOA asym-16in-08out",
+  "serialNumber": "GTBREPRO00000001",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "ProtoZOA asym-16in-08out",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": true,
+          "name": "Legacy"
+        }
+      ],
+      "defaultGTBProtocol": 2,
+      "blocks": [
+        {
+          "name": "Group1In",
+          "in": true,
+          "out": false,
+          "firstGroup": 1,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group2In",
+          "in": true,
+          "out": false,
+          "firstGroup": 2,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group3In",
+          "in": true,
+          "out": false,
+          "firstGroup": 3,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group4In",
+          "in": true,
+          "out": false,
+          "firstGroup": 4,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group5In",
+          "in": true,
+          "out": false,
+          "firstGroup": 5,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group6In",
+          "in": true,
+          "out": false,
+          "firstGroup": 6,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group7In",
+          "in": true,
+          "out": false,
+          "firstGroup": 7,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group8In",
+          "in": true,
+          "out": false,
+          "firstGroup": 8,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group9In",
+          "in": true,
+          "out": false,
+          "firstGroup": 9,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group10In",
+          "in": true,
+          "out": false,
+          "firstGroup": 10,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group11In",
+          "in": true,
+          "out": false,
+          "firstGroup": 11,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group12In",
+          "in": true,
+          "out": false,
+          "firstGroup": 12,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group13In",
+          "in": true,
+          "out": false,
+          "firstGroup": 13,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group14In",
+          "in": true,
+          "out": false,
+          "firstGroup": 14,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group15In",
+          "in": true,
+          "out": false,
+          "firstGroup": 15,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group16In",
+          "in": true,
+          "out": false,
+          "firstGroup": 16,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group1Out",
+          "in": false,
+          "out": true,
+          "firstGroup": 1,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group2Out",
+          "in": false,
+          "out": true,
+          "firstGroup": 2,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group3Out",
+          "in": false,
+          "out": true,
+          "firstGroup": 3,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group4Out",
+          "in": false,
+          "out": true,
+          "firstGroup": 4,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group5Out",
+          "in": false,
+          "out": true,
+          "firstGroup": 5,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group6Out",
+          "in": false,
+          "out": true,
+          "firstGroup": 6,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group7Out",
+          "in": false,
+          "out": true,
+          "firstGroup": 7,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group8Out",
+          "in": false,
+          "out": true,
+          "firstGroup": 8,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "prefix": "",
+  "CDC": 0,
+  "idVendor": "0xCafe",
+  "idProduct": "0x4001",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7E0000",
+  "version": "0x00010000",
+  "product": "ProtoZOA multigroup-2x8",
+  "serialNumber": "GTBREPRO00000001",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "ProtoZOA multigroup-2x8",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": true,
+          "name": "Legacy"
+        }
+      ],
+      "defaultGTBProtocol": 2,
+      "blocks": [
+        {
+          "name": "Block1",
+          "in": true,
+          "out": true,
+          "firstGroup": 1,
+          "numOfGroups": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Block2",
+          "in": true,
+          "out": true,
+          "firstGroup": 3,
+          "numOfGroups": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Block3",
+          "in": true,
+          "out": true,
+          "firstGroup": 5,
+          "numOfGroups": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Block4",
+          "in": true,
+          "out": true,
+          "firstGroup": 7,
+          "numOfGroups": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Block5",
+          "in": true,
+          "out": true,
+          "firstGroup": 9,
+          "numOfGroups": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Block6",
+          "in": true,
+          "out": true,
+          "firstGroup": 11,
+          "numOfGroups": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Block7",
+          "in": true,
+          "out": true,
+          "firstGroup": 13,
+          "numOfGroups": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Block8",
+          "in": true,
+          "out": true,
+          "firstGroup": 15,
+          "numOfGroups": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+const fs = require('fs');
+const BUILDER = '/Users/rsp_kesumo/00_Firmware/USB_Host_Dev/reference/usbMIDI2DescriptorBuilder/buildUSBDescriptors.js';
+const code = fs.readFileSync(BUILDER, 'utf8');
+eval(code);
+const configPath = process.argv[2];
+const outPath = process.argv[3];
+const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+const result = buildTinyUSBDescriptors(config);
+fs.writeFileSync(outPath, result);
+console.error(`wrote ${outPath} (${result.length} bytes of source)`);

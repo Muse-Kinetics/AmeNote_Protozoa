@@ -1,0 +1,7 @@
+SendSysEx v0.13.0
+MIDI backend: Unknown (platform default backend)
+Chunk size: 512 bytes, delay: 100 ms, post-delay: 500 ms
+
+MidiInCore::initialize: error creating OS-X MIDI client object (-304).
+
+libc++abi: terminating due to unexpected exception of type rt::midi::RtMidiError: MidiInCore::initialize: error creating OS-X MIDI client object (-304).

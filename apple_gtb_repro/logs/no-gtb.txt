@@ -1,0 +1,7 @@
+Alt-Setting-1 (MIDI2.0/UMP, bcdMSC=0x0200) declared, zero GTB blocks (bNumGrpTrmBlock=0 on both
+CS-Endpoint descriptors, GTB header-only response, wTotalLength=5). Retested clean on a fresh
+system via halt-at-main()-before-tusb_init() methodology (device confirmed off USB bus via ioreg
+during halt). Works cleanly: enumerates with Alt-0 "ProtoZOA no-gtb-base Legacy" MIDI 1.0 port
+present, correctly no MIDI 2.0/UMP port constructed (CoreMIDI has nothing to build one from).
+This is the real macOS behavior for the non-compliant "device declares UMP capability but
+provides no GTBs" case Torrey Walker's Contribution doc discusses without empirical confirmation.

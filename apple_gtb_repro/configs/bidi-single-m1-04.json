@@ -1,0 +1,67 @@
+{
+  "prefix": "",
+  "CDC": 0,
+  "idVendor": "0xCafe",
+  "idProduct": "0x4001",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7E0000",
+  "version": "0x00010000",
+  "product": "ProtoZOA bidi-single-m1-04",
+  "serialNumber": "GTBREPRO00000001",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "ProtoZOA bidi-single-m1-04",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": true,
+          "name": "Legacy"
+        }
+      ],
+      "defaultGTBProtocol": 2,
+      "blocks": [
+        {
+          "name": "Group1",
+          "in": true,
+          "out": true,
+          "firstGroup": 1,
+          "numOfGroups": 1,
+          "protocol": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group2",
+          "in": true,
+          "out": true,
+          "firstGroup": 2,
+          "numOfGroups": 1,
+          "protocol": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group3",
+          "in": true,
+          "out": true,
+          "firstGroup": 3,
+          "numOfGroups": 1,
+          "protocol": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group4",
+          "in": true,
+          "out": true,
+          "firstGroup": 4,
+          "numOfGroups": 1,
+          "protocol": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+19 total blocks (16 IN-only + 3 OUT-only). Works cleanly, all groups distinctly named.
+Confirmed via halt-at-main()-before-tusb_init() methodology (device verified off USB bus via ioreg during halt, PC checked to confirm no auto-resume on gdb detach).

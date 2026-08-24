@@ -1,0 +1,171 @@
+{
+  "prefix": "",
+  "CDC": 0,
+  "idVendor": "0xCafe",
+  "idProduct": "0x4001",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7E0000",
+  "version": "0x00010000",
+  "product": "ProtoZOA bidi-single-16",
+  "serialNumber": "GTBREPRO00000001",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "ProtoZOA bidi-single-16",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": true,
+          "name": "Legacy"
+        }
+      ],
+      "defaultGTBProtocol": 2,
+      "blocks": [
+        {
+          "name": "Group1",
+          "in": true,
+          "out": true,
+          "firstGroup": 1,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group2",
+          "in": true,
+          "out": true,
+          "firstGroup": 2,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group3",
+          "in": true,
+          "out": true,
+          "firstGroup": 3,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group4",
+          "in": true,
+          "out": true,
+          "firstGroup": 4,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group5",
+          "in": true,
+          "out": true,
+          "firstGroup": 5,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group6",
+          "in": true,
+          "out": true,
+          "firstGroup": 6,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group7",
+          "in": true,
+          "out": true,
+          "firstGroup": 7,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group8",
+          "in": true,
+          "out": true,
+          "firstGroup": 8,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group9",
+          "in": true,
+          "out": true,
+          "firstGroup": 9,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group10",
+          "in": true,
+          "out": true,
+          "firstGroup": 10,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group11",
+          "in": true,
+          "out": true,
+          "firstGroup": 11,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group12",
+          "in": true,
+          "out": true,
+          "firstGroup": 12,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group13",
+          "in": true,
+          "out": true,
+          "firstGroup": 13,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group14",
+          "in": true,
+          "out": true,
+          "firstGroup": 14,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group15",
+          "in": true,
+          "out": true,
+          "firstGroup": 15,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Group16",
+          "in": true,
+          "out": true,
+          "firstGroup": 16,
+          "numOfGroups": 1,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        }
+      ]
+    }
+  ]
+}
