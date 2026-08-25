@@ -13,8 +13,8 @@ genuinely off the USB bus during the CoreMIDI cache-clear step) — see `protozo
 §4 in the mimic_hub repo for the full methodology writeup. Hardware: AmeNote ProtoZOA
 (RP2040 + TinyUSB), independent of mimic_hub's own LPC55S16 + NXP USB stack.
 
-**At a glance: 37 artifacts (33 single-interface GTB-count sweep + 4 multi-Function
-same-class-interface tests, §9).** Of the 33: 23 enumerate cleanly, 10 crash MIDIServer with the identical
+**At a glance: 40 artifacts (33 single-interface GTB-count sweep + 4 multi-Function
+same-class-interface tests, §9 + 3 `proto_router` bug-report artifacts, §11).** Of the 33: 23 enumerate cleanly, 10 crash MIDIServer with the identical
 `__stack_chk_fail`/`SIGABRT` signature. **The crash correlates with exactly one variable across
 every artifact tested: total block count (any type — unidirectional or bidirectional, any
 `bMIDIProtocol`) ≥20.** *Correction: an earlier version of this summary stated the variable as
@@ -24,6 +24,15 @@ but 24 **total** blocks (16 unidirectional + 8 bidirectional). The true threshol
 count regardless of composition — verified against all 33 artifacts with zero exceptions (see
 the raw per-artifact table in §8).* IN/OUT skew, block-type mix, `bMIDIProtocol`, and multi-group
 spanning all have zero *additional* effect once total count is accounted for.
+
+**Crash signature is not always identical**: re-flashing `asym-16in-04out` on 2026-08-24 produced
+`EXC_BAD_ACCESS`/`KERN_INVALID_ADDRESS`/`SIGSEGV` inside `AppleMIDIUSBDriver` — same driver, same
+20-block descriptor, genuine crash, but not the `__stack_chk_fail`/`SIGABRT` signature every other
+crash in this document shows. Plausible for a real memory-safety bug (a stack overflow can corrupt
+different adjacent data depending on exact memory layout that run) — noted here so both signatures
+are on record rather than assuming only one exists. Crash report:
+`MIDIServer-2026-08-24-175321.ips` (not included in this repo — local `~/Library/Logs/
+DiagnosticReports/` only).
 
 Legend: ✅ yes · ❌ no · — not applicable · 💥 crashes MIDIServer (`__stack_chk_fail`/`SIGABRT`)
 
@@ -261,6 +270,30 @@ code, fixed and submitted upstream separately from this research branch.
   parallelism for the first time in this codebase's history — not hit during this repro's
   testing, but a real risk worth flagging rather than silently shipping. Submitted upstream to
   `midi2-dev/AmeNote_Protozoa` with this caveat noted in the PR description.
+
+## 11. `proto_router` — direct evidence for the two Apple bug reports
+
+Purpose-built to hand Apple's Feedback Assistant the minimum artifact set for two separate
+reports, mirroring mimic_hub's own real 14-port (`P01`..`P13` + `Hub Control`) shape rather
+than the abstract `Group1`/`Group2`-style names used elsewhere in this manifest. All three
+share the same Alt-0 (MIDI 1.0) legacy jack layout — 14 individually-named embedded jack
+pairs — so only the Alt-1 (MIDI 2.0) GTB shape varies between them.
+
+| Artifact | Alt-1 GTB shape | Result |
+|---|---|---|
+| `proto_router-midi1` | none (Alt-1 omitted entirely) | MIDI 1.0 baseline/reference — 14 distinctly-named legacy ports, no Alt-Setting negotiation involved at all |
+| `proto_router-midi2` | 14 separate bidirectional single-group blocks | **Correct shape.** All 14 ports distinctly named under MIDI 2.0 too, plus the standard generic `MIDI 2.0` UMP-Endpoint entry |
+| `proto_router-midi2-2block` | 2 bidirectional blocks: one spanning Groups 1-13 (`"P01-P13"`), one single-group (`"Hub Control"`) | **Bug shape.** CoreMIDI correctly creates 13 separate source/destination pairs for the wide block, but all 13 share the identical `"P01-P13"` name — confirmed live via Audio MIDI Setup (`MIDI In: 13 / MIDI Out: 13` under one Ports-list row) and Ableton Live (forced to invent its own arbitrary `"(Port 4)"`-`"(Port 13)"` suffixes, unrelated to which physical group is which) |
+
+**Bug Report 1 (unidirectional GTB crash) — recommended 3-artifact subset, from §1-8's 33:**
+`asym-16in-03out` (19 blocks, works) / `asym-16in-04out` (same shape, one more OUT port, 20
+blocks, crashes) / `uni-pairs-16` (32 blocks, "16×16", crashes) — tightest pair straddling the
+exact boundary, plus the upper-bound case.
+
+**Bug Report 2 (bidirectional GTB ports need numbering) — the 3 `proto_router` artifacts
+above**, plus 3 screenshots (correct → broken → broken-in-practice, not included in this repo —
+local only): `proto_router midi2 AMS.png`, `proto_router midi2 13x13 GTB AMS.png`,
+`proto_router midi2 13x13 GTB ableton.png`.
 
 ## Cross-reference
 

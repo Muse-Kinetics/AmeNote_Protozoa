@@ -1,0 +1,112 @@
+{
+  "prefix": "",
+  "CDC": 0,
+  "idVendor": "0xCafe",
+  "idProduct": "0x4012",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7E0000",
+  "version": "0x00010000",
+  "product": "proto_router",
+  "serialNumber": "GTBREPRO00000012",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "proto_router",
+      "MIDI1Itf": [
+        {
+          "in": true,
+          "out": true,
+          "name": "P01"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P02"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P03"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P04"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P05"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P06"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P07"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P08"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P09"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P10"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P11"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P12"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "P13"
+        },
+        {
+          "in": true,
+          "out": true,
+          "name": "Hub Control"
+        }
+      ],
+      "defaultGTBProtocol": 2,
+      "blocks": [
+        {
+          "name": "P01-P13",
+          "in": true,
+          "out": true,
+          "firstGroup": 1,
+          "numOfGroups": 13,
+          "protocol": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        },
+        {
+          "name": "Hub Control",
+          "in": true,
+          "out": true,
+          "firstGroup": 14,
+          "numOfGroups": 1,
+          "protocol": 2,
+          "wMaxInputBandwidth": 0,
+          "wMaxOutputBandwidth": 0
+        }
+      ]
+    }
+  ]
+}

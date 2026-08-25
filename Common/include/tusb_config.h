@@ -100,7 +100,7 @@
 #define CFG_TUD_HID               0
 #define CFG_TUD_MIDI              0 // we are using app specific driver until UMP included in tinyUSB
 #define CFG_TUD_VENDOR            0
-#define CFG_TUD_UMP               2 // dual-itf-m2-bidi-1g-uniq artifact save
+#define CFG_TUD_UMP               1 // proto_router repro (mimic_hub P01..P13 + Hub Control shape)
 
 // MIDI FIFO size of TX and RX
 //#define CFG_TUD_MIDI_RX_BUFSIZE   (TUD_OPT_HIGH_SPEED ? 512 : 256) //until linked buffers
