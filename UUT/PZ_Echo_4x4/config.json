@@ -1,0 +1,32 @@
+{
+  "prefix": "",
+  "CDC": 0,
+  "idVendor": "0xCafe",
+  "idProduct": "0x4020",
+  "manufacturer": "AmeNote",
+  "manufacturerId": "0x7D0000",
+  "version": "0x00010000",
+  "product": "PZ-Echo-4x4",
+  "serialNumber": "PZECHO4X4000001",
+  "power": 50,
+  "endpoints": [
+    {
+      "name": "PZ-Echo-4x4",
+      "MIDI1Itf": [
+        { "in": true, "out": true, "name": "GTB1" },
+        { "in": true, "out": true, "name": "GTB2" },
+        { "in": true, "out": true, "name": "GTB3" },
+        { "in": true, "out": true, "name": "GTB4" },
+        { "in": true, "out": true, "name": "GTB-M1" }
+      ],
+      "defaultGTBProtocol": 2,
+      "blocks": [
+        { "name": "GTB1", "in": true, "out": true, "firstGroup": 1, "numOfGroups": 1, "protocol": 2, "wMaxInputBandwidth": 0, "wMaxOutputBandwidth": 0 },
+        { "name": "GTB2", "in": true, "out": true, "firstGroup": 2, "numOfGroups": 1, "protocol": 2, "wMaxInputBandwidth": 0, "wMaxOutputBandwidth": 0 },
+        { "name": "GTB3", "in": true, "out": true, "firstGroup": 3, "numOfGroups": 1, "protocol": 2, "wMaxInputBandwidth": 0, "wMaxOutputBandwidth": 0 },
+        { "name": "GTB4", "in": true, "out": true, "firstGroup": 4, "numOfGroups": 1, "protocol": 2, "wMaxInputBandwidth": 0, "wMaxOutputBandwidth": 0 },
+        { "name": "GTB-M1", "in": true, "out": true, "firstGroup": 5, "numOfGroups": 1, "protocol": 1, "wMaxInputBandwidth": 0, "wMaxOutputBandwidth": 0 }
+      ]
+    }
+  ]
+}
