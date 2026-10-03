@@ -23,18 +23,33 @@
 //    up correctly in any MIDI 2.0-aware host; GTB/legacy-jack naming for
 //    non-UMP-aware tooling is answered by the USB descriptor layer itself
 //    (usb_descriptors.cpp).
+//  - Answers real MIDI-CI Discovery (F0 7E <id> 0D 70 ... F7) per Function
+//    Block, each with its own MUID and its own midiCIProcessor -- template
+//    is this same repo's UUT/M2Device_Repro/midi2helper.h umpFunctionBlock
+//    class, generalized from its single-instance usage there to 5 real
+//    instances (one per Function Block/group), matching the per-FB
+//    Discovery Request traffic MIDI2.0Workbench actually sends (confirmed
+//    via /Users/rsp_kesumo/midi2workbench's live session log: one Discovery
+//    Request per Function Block, addressed on that FB's own group). Profile
+//    Configuration/Property Exchange/Process Inquiry are deliberately NOT
+//    implemented -- ciSupport is declared 0x00 (Discovery only), honest
+//    about what this device actually answers.
 //
 
 #include <array>
 #include <cstdint>
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
+#include <functional>
 #include "pico/stdlib.h"
 #include "pico/unique_id.h"
 #include "tusb.h"
 #include "ump_device.h"
 #include "include/umpProcessor.h"
 #include "include/umpMessageCreate.h"
+#include "include/midiCIProcessor.h"
+#include "include/midiCIMessageCreate.h"
 
 // Responder identity for both UMP Endpoint Device Info and the classic SysEx
 // Identity Reply -- 0x7D is the MIDI "Special IDs / non-commercial" SysEx
@@ -51,21 +66,32 @@
 
 static umpProcessor UMPHandler;
 
-struct FunctionBlockDef
+// One Function Block per GTB/group, each with its own MIDI-CI identity
+// (MUID + midiCIProcessor) -- mirrors midi2helper.h's umpFunctionBlock
+// class, generalized to a real array of instances instead of that file's
+// single gFunctionBlock. `idx` matches this array's own index and is what
+// gets embedded in this FB's Discovery Reply (CIMessage::sendDiscoveryReply's
+// trailing fbIdx parameter).
+struct FunctionBlock
 {
+    uint8_t     idx;
     const char *name;
     uint8_t     groupStart; // 0-indexed
     bool        midi1Only;
+    uint32_t    MUID;
+    midiCIProcessor MIDICIHandler;
 };
 
 // GTB1..GTB4 = Groups 0-3 (MIDI 2.0 native), GTB-M1 = Group 4 (MIDI 1.0) --
-// matches config.json exactly, one Function Block per GTB.
-static const FunctionBlockDef kFunctionBlocks[5] = {
-    { "FB1",   0, false },
-    { "FB2",   1, false },
-    { "FB3",   2, false },
-    { "FB4",   3, false },
-    { "FB-M1", 4, true  },
+// matches config.json exactly, one Function Block per GTB. MUID is seeded
+// at boot in main() (needs runtime entropy); MIDICIHandler default-
+// constructs via aggregate init (trailing member omitted from each row).
+static FunctionBlock kFunctionBlocks[5] = {
+    { 0, "FB1",   0, false, 0 },
+    { 1, "FB2",   1, false, 0 },
+    { 2, "FB3",   2, false, 0 },
+    { 3, "FB4",   3, false, 0 },
+    { 4, "FB-M1", 4, true,  0 },
 };
 static constexpr uint8_t kNumFunctionBlocks = 5;
 
@@ -118,7 +144,7 @@ static void functionBlockHandler(uint8_t fbIdx, uint8_t filter)
     for (uint8_t i = 0; i < kNumFunctionBlocks; i++)
     {
         if (fbIdx != i && fbIdx != 0xFF) continue;
-        const FunctionBlockDef &fb = kFunctionBlocks[i];
+        const FunctionBlock &fb = kFunctionBlocks[i];
 
         if (filter & 0x1) {
             send4(UMPMessage::mtFFunctionBlockInfoNotify(
@@ -178,8 +204,90 @@ static void sendIdentityReply(uint8_t group, uint8_t deviceId)
     sendOutSysex(group, reply, sizeof(reply), 0);
 }
 
+// --- MIDI-CI: per-Function-Block Discovery Reply --------------------------
+//
+// Seeded from the board's factory-unique ID XORed with the boot-relative
+// clock (same spirit as m2-device-15-1/main.cpp's randomMuid()) so the MUID
+// differs across boots/boards without a hardware RNG peripheral (RP2040 has
+// none).
+static void seedRng()
+{
+    pico_unique_board_id_t boardId;
+    pico_get_unique_board_id(&boardId);
+    uint32_t seed = (uint32_t)to_us_since_boot(get_absolute_time());
+    for (unsigned i = 0; i < PICO_UNIQUE_BOARD_ID_SIZE_BYTES; i++) {
+        seed ^= (uint32_t)boardId.id[i] << ((i % 4) * 8);
+    }
+    srand(seed);
+}
+
+// MUID is a 28-bit value on the wire (MIDI-CI spec) -- masking this is not
+// optional. mimic_hub's own decisions.md documents a real, previously-shipped
+// bug from skipping this mask: an unmasked 32-bit MUID compared correctly
+// only when its top nibble happened to be zero (~1-in-16), silently dropping
+// every other Discovery Reply with no error. Mask here, matching the
+// library's own device-side responder convention (UMP_Endpoint::ensureMUID()
+// in mimic_hub/ePercScanner's shared midi_cpp).
+static uint32_t randomMuid()
+{
+    uint32_t v = (uint32_t)rand() & 0x0FFFFFFFu;
+    if (v == 0x0FFFFFFFu) v = 0; // avoid the reserved broadcast value
+    return v;
+}
+
+static bool checkMUIDCallback(uint8_t group, uint32_t muid, FunctionBlock *fb)
+{
+    (void)group;
+    return fb->MUID == muid;
+}
+
+static void recvDiscovery(struct MIDICI ciDetails, std::array<uint8_t, 3> manuId,
+                           std::array<uint8_t, 2> familyId, std::array<uint8_t, 2> modelId,
+                           std::array<uint8_t, 4> version, uint8_t remoteciSupport,
+                           uint16_t remotemaxSysex, uint8_t outputPathId, FunctionBlock *fb)
+{
+    (void)manuId; (void)familyId; (void)modelId; (void)version;
+    (void)remoteciSupport; (void)remotemaxSysex;
+
+    uint8_t sysexBuffer[64];
+    uint16_t len = CIMessage::sendDiscoveryReply(
+        sysexBuffer, /*midiCIVer*/0x02, fb->MUID, ciDetails.remoteMUID,
+        {DEVICE_MFRID}, {DEVICE_FAMID}, {DEVICE_MODELID}, {DEVICE_VERSIONID},
+        /*ciSupport*/0x00, /*sysExMax*/512, outputPathId, fb->idx);
+    sendOutSysex(ciDetails.umpGroup, sysexBuffer, len, 0);
+}
+
+// True while a MIDI-CI SysEx7 stream (Universal Non-RT 0x7E + MIDI-CI
+// sub-ID1 0x0D) is being reassembled -- detected on the Start/Complete
+// packet, same technique as M2Device_Repro/main.cpp's handle_sysex7(), but
+// operating on umpProcessor's already-reassembled struct umpData instead of
+// re-parsing raw UMP words. s_ciGroup selects which Function Block's own
+// midiCIProcessor owns this stream (each group maps 1:1 to one FB here).
+static bool    s_ciInProgress = false;
+static uint8_t s_ciGroup = 0;
+
 static void processUMPSysex(struct umpData mess)
 {
+    if (mess.form == 0 || mess.form == 1) {
+        s_ciInProgress = (mess.dataLength >= 3 && mess.data[0] == 0x7E && mess.data[2] == 0x0D);
+        if (s_ciInProgress) {
+            s_ciGroup = mess.umpGroup;
+            if (s_ciGroup < kNumFunctionBlocks) {
+                kFunctionBlocks[s_ciGroup].MIDICIHandler.startSysex7(s_ciGroup, mess.data[1]);
+            }
+        }
+    }
+    if (s_ciInProgress && s_ciGroup < kNumFunctionBlocks) {
+        for (uint8_t i = 0; i < mess.dataLength; i++) {
+            kFunctionBlocks[s_ciGroup].MIDICIHandler.processMIDICI(mess.data[i]);
+        }
+        if (mess.form == 0 || mess.form == 3) {
+            kFunctionBlocks[s_ciGroup].MIDICIHandler.endSysex7();
+            s_ciInProgress = false;
+        }
+        return; // MIDI-CI traffic doesn't fall through to the classic path below
+    }
+
     if (mess.form == 0 || mess.form == 1) {
         s_sysexLen = 0;
         s_sysexGroup = mess.umpGroup;
@@ -250,10 +358,22 @@ int main()
 {
     stdio_init_all();
     tusb_init();
+    seedRng();
 
     UMPHandler.setMidiEndpoint(midiEndpointHandler);
     UMPHandler.setFunctionBlock(functionBlockHandler);
     UMPHandler.setSysEx(processUMPSysex);
+
+    for (uint8_t i = 0; i < kNumFunctionBlocks; i++) {
+        FunctionBlock *fb = &kFunctionBlocks[i];
+        fb->MUID = randomMuid();
+        fb->MIDICIHandler.setCheckMUID(
+            std::bind(checkMUIDCallback, std::placeholders::_1, std::placeholders::_2, fb));
+        fb->MIDICIHandler.setRecvDiscovery(
+            std::bind(recvDiscovery, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3,
+                      std::placeholders::_4, std::placeholders::_5, std::placeholders::_6,
+                      std::placeholders::_7, std::placeholders::_8, fb));
+    }
 
     while (true)
     {
