@@ -9,8 +9,8 @@ uint8_t const desc_device[] = {
 	0x40,	// bMaxPacketSize0
 	0xFE,	// idVendorLSB
 	0xCA,	// idVendorMSB
-	0x20,	// idProductLSB
-	0x40,	// idProductMSB
+	0x01,	// idProductLSB
+	0x48,	// idProductMSB
 	0x00,	// bcdDeviceLSB
 	0x01,	// bcdDeviceMSB
 	0x01,	// iManufacturer  "AmeNote"
@@ -35,8 +35,8 @@ uint8_t const desc_device_qualifier[] = {
 uint8_t const desc_fs_configuration[] = {
 	0x09,	// bLength
 	0x02,	// bDescriptorType = CONFIGURATION
-	0xD2,	// Total LengthLSB
-	0x00,	// Total LengthMSB
+	0x1D,	// Total LengthLSB
+	0x01,	// Total LengthMSB
 	0x02,	// bNumInterfaces
 	0x01,	// bConfigurationValue
 	0x00,	// iConfiguration
@@ -94,7 +94,7 @@ uint8_t const desc_fs_configuration[] = {
 	0x01,	// bDescriptorSubtype = MS_HEADER
 	0x00,	// bcdMSCLSB
 	0x01,	// bcdMSCMSB
-	0x67,	// wTotalLengthLSB
+	0xC1,	// wTotalLengthLSB
 	0x00,	// wTotalLengthMSB
 	
   // Audio MS Descriptor - CS Interface - MIDI IN Jack (EMB) (Main In)
@@ -105,14 +105,33 @@ uint8_t const desc_fs_configuration[] = {
 	0x01,	// bJackID (string = "GTB1")
 	0x04,	// iJack - "GTB1"
 	
+  // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EXT) (Main Out)
+	0x09,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x03,	// bDescriptorSubtype = MIDI_OUT_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x04,	// bJackID for external (string = "GTB1")
+	0x01,	// bNrInputPins
+	0x01,	// baSourceID = Embedded bJackId (string = "GTB1")
+	0x01,	// baSourcePin
+	0x04,	// iJack - "GTB1"
+	
+  // Audio MS Descriptor - CS Interface - MIDI IN Jack (EXT) (Main In)
+	0x06,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x02,	// bDescriptorSubtype = MIDI_IN_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x02,	// bJackID for external (string = "GTB1")
+	0x04,	// iJack - "GTB1"
+	
   // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EMB) (Main Out)
 	0x09,	// bLength
 	0x24,	// bDescriptorType
 	0x03,	// bDescriptorSubtype
 	0x01,	// bJackType
-	0x12,	// bJackID (string = "GTB1")
+	0x03,	// bJackID (string = "GTB1")
 	0x01,	// Number of Input Pins of this Jack
-	0x00,	// baSourceID (string = "GTB1")
+	0x02,	// baSourceID (string = "GTB1")
 	0x01,	// baSourcePin
 	0x04,	// iJack - "GTB1"
 	
@@ -124,14 +143,33 @@ uint8_t const desc_fs_configuration[] = {
 	0x05,	// bJackID (string = "GTB2")
 	0x05,	// iJack - "GTB2"
 	
+  // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EXT) (Main Out)
+	0x09,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x03,	// bDescriptorSubtype = MIDI_OUT_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x08,	// bJackID for external (string = "GTB2")
+	0x01,	// bNrInputPins
+	0x05,	// baSourceID = Embedded bJackId (string = "GTB2")
+	0x01,	// baSourcePin
+	0x05,	// iJack - "GTB2"
+	
+  // Audio MS Descriptor - CS Interface - MIDI IN Jack (EXT) (Main In)
+	0x06,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x02,	// bDescriptorSubtype = MIDI_IN_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x06,	// bJackID for external (string = "GTB2")
+	0x05,	// iJack - "GTB2"
+	
   // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EMB) (Main Out)
 	0x09,	// bLength
 	0x24,	// bDescriptorType
 	0x03,	// bDescriptorSubtype
 	0x01,	// bJackType
-	0x16,	// bJackID (string = "GTB2")
+	0x07,	// bJackID (string = "GTB2")
 	0x01,	// Number of Input Pins of this Jack
-	0x00,	// baSourceID (string = "GTB2")
+	0x06,	// baSourceID (string = "GTB2")
 	0x01,	// baSourcePin
 	0x05,	// iJack - "GTB2"
 	
@@ -143,14 +181,33 @@ uint8_t const desc_fs_configuration[] = {
 	0x09,	// bJackID (string = "GTB3")
 	0x06,	// iJack - "GTB3"
 	
+  // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EXT) (Main Out)
+	0x09,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x03,	// bDescriptorSubtype = MIDI_OUT_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x0C,	// bJackID for external (string = "GTB3")
+	0x01,	// bNrInputPins
+	0x09,	// baSourceID = Embedded bJackId (string = "GTB3")
+	0x01,	// baSourcePin
+	0x06,	// iJack - "GTB3"
+	
+  // Audio MS Descriptor - CS Interface - MIDI IN Jack (EXT) (Main In)
+	0x06,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x02,	// bDescriptorSubtype = MIDI_IN_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x0A,	// bJackID for external (string = "GTB3")
+	0x06,	// iJack - "GTB3"
+	
   // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EMB) (Main Out)
 	0x09,	// bLength
 	0x24,	// bDescriptorType
 	0x03,	// bDescriptorSubtype
 	0x01,	// bJackType
-	0x1A,	// bJackID (string = "GTB3")
+	0x0B,	// bJackID (string = "GTB3")
 	0x01,	// Number of Input Pins of this Jack
-	0x00,	// baSourceID (string = "GTB3")
+	0x0A,	// baSourceID (string = "GTB3")
 	0x01,	// baSourcePin
 	0x06,	// iJack - "GTB3"
 	
@@ -162,14 +219,33 @@ uint8_t const desc_fs_configuration[] = {
 	0x0D,	// bJackID (string = "GTB4")
 	0x07,	// iJack - "GTB4"
 	
+  // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EXT) (Main Out)
+	0x09,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x03,	// bDescriptorSubtype = MIDI_OUT_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x10,	// bJackID for external (string = "GTB4")
+	0x01,	// bNrInputPins
+	0x0D,	// baSourceID = Embedded bJackId (string = "GTB4")
+	0x01,	// baSourcePin
+	0x07,	// iJack - "GTB4"
+	
+  // Audio MS Descriptor - CS Interface - MIDI IN Jack (EXT) (Main In)
+	0x06,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x02,	// bDescriptorSubtype = MIDI_IN_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x0E,	// bJackID for external (string = "GTB4")
+	0x07,	// iJack - "GTB4"
+	
   // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EMB) (Main Out)
 	0x09,	// bLength
 	0x24,	// bDescriptorType
 	0x03,	// bDescriptorSubtype
 	0x01,	// bJackType
-	0x1E,	// bJackID (string = "GTB4")
+	0x0F,	// bJackID (string = "GTB4")
 	0x01,	// Number of Input Pins of this Jack
-	0x00,	// baSourceID (string = "GTB4")
+	0x0E,	// baSourceID (string = "GTB4")
 	0x01,	// baSourcePin
 	0x07,	// iJack - "GTB4"
 	
@@ -181,14 +257,33 @@ uint8_t const desc_fs_configuration[] = {
 	0x11,	// bJackID (string = "GTB-M1")
 	0x08,	// iJack - "GTB-M1"
 	
+  // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EXT) (Main Out)
+	0x09,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x03,	// bDescriptorSubtype = MIDI_OUT_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x14,	// bJackID for external (string = "GTB-M1")
+	0x01,	// bNrInputPins
+	0x11,	// baSourceID = Embedded bJackId (string = "GTB-M1")
+	0x01,	// baSourcePin
+	0x08,	// iJack - "GTB-M1"
+	
+  // Audio MS Descriptor - CS Interface - MIDI IN Jack (EXT) (Main In)
+	0x06,	// bLength
+	0x24,	// bDescriptorType = CS_INTERFACE
+	0x02,	// bDescriptorSubtype = MIDI_IN_JACK
+	0x02,	// bJackType = EXTERNAL
+	0x12,	// bJackID for external (string = "GTB-M1")
+	0x08,	// iJack - "GTB-M1"
+	
   // Audio MS Descriptor - CS Interface - MIDI OUT Jack (EMB) (Main Out)
 	0x09,	// bLength
 	0x24,	// bDescriptorType
 	0x03,	// bDescriptorSubtype
 	0x01,	// bJackType
-	0x22,	// bJackID (string = "GTB-M1")
+	0x13,	// bJackID (string = "GTB-M1")
 	0x01,	// Number of Input Pins of this Jack
-	0x00,	// baSourceID (string = "GTB-M1")
+	0x12,	// baSourceID (string = "GTB-M1")
 	0x01,	// baSourcePin
 	0x08,	// iJack - "GTB-M1"
 	
@@ -230,11 +325,11 @@ uint8_t const desc_fs_configuration[] = {
 	0x25,	// bDescriptorType = CS_ENDPOINT
 	0x01,	// bDescriptorSubtype = MS_GENERAL
 	0x05,	// bNumEmbMIDJack
-	0x12,	// Jack Id - Embedded MIDI Out (string = "GTB1")
-	0x16,	// Jack Id - Embedded MIDI Out (string = "GTB2")
-	0x1A,	// Jack Id - Embedded MIDI Out (string = "GTB3")
-	0x1E,	// Jack Id - Embedded MIDI Out (string = "GTB4")
-	0x22,	// Jack Id - Embedded MIDI Out (string = "GTB-M1")
+	0x03,	// Jack Id - Embedded MIDI Out (string = "GTB1")
+	0x07,	// Jack Id - Embedded MIDI Out (string = "GTB2")
+	0x0B,	// Jack Id - Embedded MIDI Out (string = "GTB3")
+	0x0F,	// Jack Id - Embedded MIDI Out (string = "GTB4")
+	0x13,	// Jack Id - Embedded MIDI Out (string = "GTB-M1")
 	
   // Interface - MIDIStreaming - Alternate Setting #1
 	0x09,	// bLength

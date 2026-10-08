@@ -2,7 +2,7 @@
   "prefix": "",
   "CDC": 0,
   "idVendor": "0xCafe",
-  "idProduct": "0x4020",
+  "idProduct": "0x4801",
   "manufacturer": "AmeNote",
   "manufacturerId": "0x7D0000",
   "version": "0x00010000",
@@ -13,11 +13,11 @@
     {
       "name": "PZ-Echo-4x4",
       "MIDI1Itf": [
-        { "in": true, "out": true, "name": "GTB1" },
-        { "in": true, "out": true, "name": "GTB2" },
-        { "in": true, "out": true, "name": "GTB3" },
-        { "in": true, "out": true, "name": "GTB4" },
-        { "in": true, "out": true, "name": "GTB-M1" }
+        { "in": true, "out": true, "name": "GTB1", "externalCreate": true },
+        { "in": true, "out": true, "name": "GTB2", "externalCreate": true },
+        { "in": true, "out": true, "name": "GTB3", "externalCreate": true },
+        { "in": true, "out": true, "name": "GTB4", "externalCreate": true },
+        { "in": true, "out": true, "name": "GTB-M1", "externalCreate": true }
       ],
       "defaultGTBProtocol": 2,
       "blocks": [

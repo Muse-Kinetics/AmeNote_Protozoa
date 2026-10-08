@@ -24,7 +24,8 @@ below `0x3F` or it collides with that marker bit.
 | 0x05 | USB_MIDI_Echo | `USBMidiEcho` | `UUT_FreeRTOS/USB_MIDI_Echo/usb_descriptors.cpp` |
 | 0x06 | FreeRTOS_Tasks (3groups variant) | `USBMidiFreeRtosTasks` | `UUT_FreeRTOS/FreeRTOS_Tasks/usb_descriptors.3groups.cpp` |
 | 0x07 | FreeRTOS_Tasks (bt variant) | `USBMidiFreeRtosTasksBt` | `UUT_FreeRTOS/FreeRTOS_Tasks/usb_descriptors.bt.cpp` |
-| 0x08-0x1F | *(reserved headroom for the sequence above)* | | |
+| 0x08 | PZ_Echo_4x4 | `PZ-Echo-4x4` | `UUT/PZ_Echo_4x4/config.json` (fixed `idProduct` 0x4801, see below) |
+| 0x09-0x1F | *(reserved headroom for the sequence above)* | | |
 | 0x20 | UART_DIN_Bridge | `USBMidiUartDinBridge` | `UUT/UART_DIN_Bridge/usb_descriptors.cpp` |
 | 0x21 | LoopbackDIN_Bridge | `USBMidiLoopbackDinBridge` | `UUT/LoopbackDIN_Bridge/usb_descriptors.cpp` |
 
@@ -35,10 +36,12 @@ this pair.
 
 The USB product string (`iProduct`) is likewise unique per app now, matching its `USB_PID_APP` -- previously several apps (`CME_WIDI_CORE_EXP`, `USB_MIDI_Echo`, and the `FreeRTOS_Tasks` 3groups variant) all identically reported "ProtoZOA" as their product name, which was just as ambiguous to a user picking a device off a list as the shared PID was.
 
+`UUT/PZ_Echo_4x4` generates its descriptors from `config.json`, so its PID is set there rather than computed: 0x4801 is what the macro gives for app 0x08 with the shared `tusb_config.h` (CDC bit set, MIDI bit clear).
+
 `UUT/CDC_FunctionBlocks` has no descriptors of its own (it's driven over
 SPI/interchip from another Pico's USB stack), so it needs no entry here.
 
 When adding a new test application with its own USB descriptors, pick the
-next unused `USB_PID_APP` value (0x08 onward, staying below the `0x20`
+next unused `USB_PID_APP` value (0x09 onward, staying below the `0x20`
 block reserved above unless you're adding another one-off/example app that
 should also sit in its own headroom) and add a row above.
