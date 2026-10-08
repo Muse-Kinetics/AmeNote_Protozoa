@@ -8,6 +8,7 @@
 // see usb_descriptors.cpp.
 //
 // Behavior:
+//  - Answers a SysEx dump request with a message of the requested size
 //  - Responds to a Universal Non-Realtime SysEx Identity Request
 //    (F0 7E <id> 06 01 F7) on any group with an Identity Reply, addressed
 //    back on the same group it arrived on -- since each of the 5 groups
@@ -204,6 +205,53 @@ static void sendIdentityReply(uint8_t group, uint8_t deviceId)
     sendOutSysex(group, reply, sizeof(reply), 0);
 }
 
+// --- SysEx dump, for testing a host's SysEx receive ----------------------
+// Request: F0 7D 50 5A 01 n2 n1 n0 F7  (N = 21 bits, 7 per byte, MSB first)
+// Reply:   F0 7D 50 5A 02 <payload> F7, exactly N bytes, payload byte k = k & 0x7F
+static const uint8_t kDumpHeader[4] = {0x7D, 0x50, 0x5A, 0x02};
+
+static struct
+{
+    bool     active;
+    uint8_t  group;
+    uint32_t length;  // N - 2: without F0 and F7
+    uint32_t sent;
+} s_dump;
+
+static void startDump(uint8_t group, uint32_t wireLength)
+{
+    if (wireLength < 7) wireLength = 7;
+    s_dump.group = group;
+    s_dump.length = wireLength - 2;
+    s_dump.sent = 0;
+    s_dump.active = true;
+}
+
+static uint8_t dumpByte(uint32_t i)
+{
+    return i < sizeof(kDumpHeader) ? kDumpHeader[i] : (uint8_t)((i - sizeof(kDumpHeader)) & 0x7F);
+}
+
+// Streamed as the FIFO drains; 4 words of room since one UMP can become 3 USB MIDI 1.0 packets.
+static void serviceDump()
+{
+    while (s_dump.active && tud_ump_n_mounted(UMP_ITF) && tud_ump_n_writeable(UMP_ITF) >= 4)
+    {
+        uint32_t left = s_dump.length - s_dump.sent;
+        uint8_t n = left < 6 ? (uint8_t)left : 6;
+        std::array<uint8_t, 6> bytes = {0};
+        for (uint8_t k = 0; k < n; k++) bytes[k] = dumpByte(s_dump.sent + k);
+
+        bool first = s_dump.sent == 0;
+        bool last = s_dump.sent + n == s_dump.length;
+        uint8_t status = first ? (last ? 0 : 1) : (last ? 3 : 2);  // complete, start, continue, end
+        send2(UMPMessage::mt3Sysex7(s_dump.group, status, n, bytes));
+
+        s_dump.sent += n;
+        if (last) s_dump.active = false;
+    }
+}
+
 // --- MIDI-CI: per-Function-Block Discovery Reply --------------------------
 //
 // Seeded from the board's factory-unique ID XORed with the boot-relative
@@ -299,6 +347,11 @@ static void processUMPSysex(struct umpData mess)
         if (s_sysexLen == 4 && s_sysexBuf[0] == 0x7E && s_sysexBuf[2] == 0x06 && s_sysexBuf[3] == 0x01) {
             sendIdentityReply(s_sysexGroup, s_sysexBuf[1]);
         }
+        else if (s_sysexLen == 7 && s_sysexBuf[0] == 0x7D && s_sysexBuf[1] == 0x50 &&
+                 s_sysexBuf[2] == 0x5A && s_sysexBuf[3] == 0x01) {
+            startDump(s_sysexGroup, ((uint32_t)s_sysexBuf[4] << 14) |
+                                    ((uint32_t)s_sysexBuf[5] << 7) | s_sysexBuf[6]);
+        }
         s_sysexLen = 0;
     }
 }
@@ -385,6 +438,7 @@ int main()
     {
         tud_task();
         poll_ump();
+        serviceDump();
     }
 
     return 0;
