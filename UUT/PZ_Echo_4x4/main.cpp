@@ -327,29 +327,35 @@ static void poll_ump()
     static uint8_t  rxCount = 0;
     static uint8_t  rxNeeded = 1;
 
-    while (tud_ump_n_mounted(UMP_ITF) && tud_ump_n_available(UMP_ITF) >= 1 && rxCount < rxNeeded)
+    // Exactly 2 words: on alt setting 0 tusb_ump reads nothing into less, and more can overflow.
+    uint32_t words[2];
+    uint16_t n;
+    while (tud_ump_n_mounted(UMP_ITF) && tud_ump_n_available(UMP_ITF) >= 1 &&
+           (n = tud_ump_read_ntoh(UMP_ITF, words, 2)) > 0)
     {
-        uint32_t w;
-        if (tud_ump_read_ntoh(UMP_ITF, &w, 1) != 1) break;
-        rxWords[rxCount++] = w;
-        if (rxCount == 1)
+        for (uint16_t k = 0; k < n; k++)
         {
-            rxNeeded = words_needed_for_mt((uint8_t)(w >> 28));
-        }
-        if (rxCount >= rxNeeded)
-        {
-            uint8_t mt = (uint8_t)(rxWords[0] >> 28);
-            if (mt == 0x2 || mt == 0x4)
+            uint32_t w = words[k];
+            rxWords[rxCount++] = w;
+            if (rxCount == 1)
             {
-                // Channel Voice -- echo the raw word(s) back unmodified.
-                tud_ump_write_hton(UMP_ITF, rxWords, rxNeeded);
+                rxNeeded = words_needed_for_mt((uint8_t)(w >> 28));
             }
-            else
+            if (rxCount >= rxNeeded)
             {
-                for (uint8_t i = 0; i < rxNeeded; i++) UMPHandler.processUMP(rxWords[i]);
+                uint8_t mt = (uint8_t)(rxWords[0] >> 28);
+                if (mt == 0x2 || mt == 0x4)
+                {
+                    // Channel Voice -- echo the raw word(s) back unmodified.
+                    tud_ump_write_hton(UMP_ITF, rxWords, rxNeeded);
+                }
+                else
+                {
+                    for (uint8_t i = 0; i < rxNeeded; i++) UMPHandler.processUMP(rxWords[i]);
+                }
+                rxCount = 0;
+                rxNeeded = 1;
             }
-            rxCount = 0;
-            rxNeeded = 1;
         }
     }
 }
